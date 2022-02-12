@@ -1,0 +1,78 @@
+"~*(?:\b)AdsBot-Google(?:\b)" 3;
+
+"~*(?:\b)DoCoMo(?:\b)" 3;
+
+"~*(?:\b)Feedfetcher-Google(?:\b)" 3;
+
+"~*(?:\b)Google-HTTP-Java-Client(?:\b)" 3;
+
+"~*(?:\b)Googlebot(?:\b)" 3;
+
+"~*(?:\b)Googlebot-Image(?:\b)" 3;
+
+"~*(?:\b)Googlebot-Mobile(?:\b)" 3;
+
+"~*(?:\b)Googlebot-News(?:\b)" 3;
+
+"~*(?:\b)Googlebot-Video(?:\b)" 3;
+
+"~*(?:\b)Googlebot/Test(?:\b)" 3;
+
+"~*(?:\b)Gravityscan(?:\b)" 3;
+
+"~*(?:\b)Jakarta\ Commons(?:\b)" 3;
+
+"~*(?:\b)Kraken/0.1(?:\b)" 3;
+
+"~*(?:\b)LinkedInBot(?:\b)" 3;
+
+"~*(?:\b)Mediapartners-Google(?:\b)" 3;
+
+"~*(?:\b)SAMSUNG(?:\b)" 3;
+
+"~*(?:\b)Slackbot(?:\b)" 3;
+
+"~*(?:\b)Slackbot-LinkExpanding(?:\b)" 3;
+
+"~*(?:\b)TwitterBot(?:\b)" 3;
+
+"~*(?:\b)Wordpress(?:\b)" 3;
+
+"~*(?:\b)adidxbot(?:\b)" 3;
+
+"~*(?:\b)aolbuild(?:\b)" 3;
+
+"~*(?:\b)bingbot(?:\b)" 3;
+
+"~*(?:\b)bingpreview(?:\b)" 3;
+
+"~*(?:\b)developers.facebook.com(?:\b)" 3;
+
+"~*(?:\b)duckduckgo(?:\b)" 3;
+
+"~*(?:\b)facebookexternalhit(?:\b)" 3;
+
+"~*(?:\b)facebookplatform(?:\b)" 3;
+
+"~*(?:\b)gsa-crawler(?:\b)" 3;
+
+"~*(?:\b)msnbot(?:\b)" 3;
+
+"~*(?:\b)msnbot-media(?:\b)" 3;
+
+"~*(?:\b)slurp(?:\b)" 3;
+
+"~*(?:\b)teoma(?:\b)" 3;
+
+"~*(?:\b)yahoo(?:\b)" 3;
+"~*(?:\b)Lynx(?:\b)" 3;
+
+"~*(?:\b)Presto(?:\b)" 3;
+
+"~*(?:\b)Wget/1.15(?:\b)" 3;
+
+"~*(?:\b)jetmon(?:\b)" 3;
+
+"~*(?:\b)libwww-perl(?:\b)" 3;
+
+"~*(?:\b)munin(?:\b)" 3;
