@@ -1,0 +1,5 @@
+host-suffix, boxer.baidu.com, reject
+host-suffix, openinstall.io, reject
+host-suffix, app-m.huxiu.com, reject
+host-suffix, stock.sina.com.cn, reject
+host-suffix, link.dianping.com, reject
