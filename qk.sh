@@ -80,6 +80,6 @@ fi
 echo Deleting temp directory $TMPDIR...
 rm -rf "$TMPDIR"
 
-sudo wget https://raw.githubusercontent.com/xlabr/u/sh/json/t.server -O /usr/local/etc/trojan/config.json
+sudo wget https://raw.githubusercontent.com/xlabr/u/sh/t.server -O /usr/local/etc/trojan/config.json
 
 echo Done!
