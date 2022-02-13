@@ -81,6 +81,9 @@ echo Deleting temp directory $TMPDIR...
 rm -rf "$TMPDIR"
 
 sudo wget https://raw.githubusercontent.com/xlabr/u/sh/t.server -O /usr/local/etc/trojan/config.json
+
+echo trojan Done!
+
 sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/xlabr/u/sh/nginx-block.sh)"
 
 echo Done!
