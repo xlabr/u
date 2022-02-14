@@ -45,7 +45,7 @@ fi
 
 chown -R $USER:$USER /usr/local/etc/acme
 /home/ubuntu/.acme.sh/acme.sh --install-cert -d $TDOMAIN --key-file /usr/local/etc/acme/private.key --fullchain-file /usr/local/etc/acme/certificate.crt --force
-/home/ubuntu/.acme.sh/acme.sh  --upgrade  --auto-upgrade
+/home/ubuntu/.acme.sh/acme.sh  --upgrade  --auto-upgrade --force
 chmod -R 750 /usr/local/etc/acme
 
 #trojan 1
