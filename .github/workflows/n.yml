@@ -8,8 +8,8 @@ jobs:
       - name: run
         run: | 
          sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/xlabr/u/sh/qk2.sh)"
-         sudo cp /usr/local/etc/trojan/config.json /temp
-         sudo cp /etc/nginx/sites-available/default /temp
+         sudo cp /usr/local/etc/trojan/config.json /tmp
+         sudo cp /etc/nginx/sites-available/default /tmp
     
       - name: Release and upload assets
         uses: softprops/action-gh-release@v0.1.6
