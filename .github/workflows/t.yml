@@ -19,7 +19,7 @@ jobs:
           cd "$TMPDIR"           
           curl -LO --progress-bar "$DOWNLOADURL" || wget -q --show-progress "$DOWNLOADURL" 
           tar xf "$TARBALL"          
-          mv trojan /tmp/           
+          mv trojan /tmp           
           cd /tmp
           mv trojan/examples/* trojan  
           
