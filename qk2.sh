@@ -75,6 +75,7 @@ EOF
         echo Skipping installing $NAME systemd service...
     fi
 fi
+
 cat > /usr/local/etc/trojan/config.json <<-EOF
 {
     "run_type": "server",
