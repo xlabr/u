@@ -135,6 +135,6 @@ EOF
 echo nginx Done!
 
 echo Deleting temp directory $TMPDIR...
-rm -rf "$TMPDIR"
+#rm -rf "$TMPDIR"
 
 echo Done！
