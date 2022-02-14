@@ -33,12 +33,11 @@ CONFIGPATH="$INSTALLPREFIX/etc/$NAME/config.json"
 SYSTEMDPATH="$SYSTEMDPREFIX/$NAME.service"
 
 #acme
-#apt install -y socat cron curl
-#curl  https://get.acme.sh | sh
-#cd /root/.acme.sh
-#export CF_Key="$KEY"
-#export CF_Email="$EMAIL"
-/home/$USER/.acme.sh/acme.sh --issue -d $TDOMAIN --dns dns_cf --server letsencrypt --force
+apt install -y socat cron curl
+curl  https://get.acme.sh | sh
+export CF_Key="$KEY"
+export CF_Email="$EMAIL"
+/home/ubuntu/.acme.sh/acme.sh --issue -d $TDOMAIN --dns dns_cf --server letsencrypt --force
 mkdir /usr/local/etc/acme
 chown -R $USER:$USER /usr/local/etc/acme
 /home/$USER/.acme.sh/acme.sh --install-cert -d $TDOMAIN --key-file /usr/local/etc/acme/private.key --fullchain-file /usr/local/etc/acme/certificate.crt --force
