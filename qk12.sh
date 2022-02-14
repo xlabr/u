@@ -22,7 +22,7 @@ if [[ $(uname -m 2> /dev/null) != x86_64 ]]; then
 fi
 
 #varibales
-read -p "ENTER USER TDOMAIN RTDOMAIN TIP TPWD:" USER TDOMAIN RTDOMAIN TIP TPWD
+read -p "ENTER USER TDOMAIN RTDOMAIN TIP TPWD EMAIL KEY:" USER TDOMAIN RTDOMAIN TIP TPWD EMAIL KEY
 NAME=trojan
 VERSION=$(curl -fsSL https://api.github.com/repos/trojan-gfw/trojan/releases/latest | grep tag_name | sed -E 's/.*"v(.*)".*/\1/')
 TMPDIR="$(mktemp -d)"
@@ -33,8 +33,11 @@ CONFIGPATH="$INSTALLPREFIX/etc/$NAME/config.json"
 SYSTEMDPATH="$SYSTEMDPREFIX/$NAME.service"
 
 #acme
-cd /home/$USER/.acme.sh
-./acme.sh --issue -d $TDOMAIN --dns dns_cf --server letsencrypt
+apt install -y socat cron curl
+curl  https://get.acme.sh | sh
+export CF_Key="$KEY"
+export CF_Email="$EMAIL"
+acme.sh --issue -d $TDOMAIN --dns dns_cf --server letsencrypt
 mkdir /usr/local/etc/acme
 chown -R $USER:$USER /usr/local/etc/acme
 acme.sh --install-cert -d $TDOMAIN --key-file /usr/local/etc/acme/private.key --fullchain-file /usr/local/etc/acme/certificate.crt
