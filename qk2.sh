@@ -21,7 +21,7 @@ if [[ $(uname -m 2> /dev/null) != x86_64 ]]; then
     exit 1
 fi
 
-read -p "enter domain trdomain ip pwd:" tdomain trdomain tip tpwd
+#read -p "enter domain trdomain ip pwd:" tdomain trdomain tip tpwd
 
 NAME=trojan
 VERSION=$(curl -fsSL https://api.github.com/repos/trojan-gfw/trojan/releases/latest | grep tag_name | sed -E 's/.*"v(.*)".*/\1/')
