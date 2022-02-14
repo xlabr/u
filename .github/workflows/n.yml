@@ -7,18 +7,7 @@ jobs:
     steps:
       - name: run
         run: | 
-         sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/xlabr/u/sh/qk2.sh)"
-         sudo cp /usr/local/etc/trojan/config.json /tmp
-         sudo cp /etc/nginx/sites-available/default /tmp
+         bash -c "$(curl -fsSL https://raw.githubusercontent.com/xlabr/u/sh/nginx-block.sh)"
+         
     
-      - name: Release and upload assets
-        uses: softprops/action-gh-release@v0.1.6
-        with:
-          name: test
-          tag_name: test
-          draft: false
-          prerelease: false
-          files: |
-            /tmp/*
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}        
+     
