@@ -21,19 +21,13 @@ if [[ $(uname -m 2> /dev/null) != x86_64 ]]; then
     exit 1
 fi
 
-#read -p "enter domain trdomain ip pwd:" tdomain trdomain tip tpwd
+read -p "enter domain trdomain ip pwd:" tdomain trdomain tip tpwd
 
 NAME=trojan
 VERSION=$(curl -fsSL https://api.github.com/repos/trojan-gfw/trojan/releases/latest | grep tag_name | sed -E 's/.*"v(.*)".*/\1/')
 TMPDIR="$(mktemp -d)"
 INSTALLPREFIX=/usr/local
 SYSTEMDPREFIX=/etc/systemd/system
-
-tdomain=ok.tp
-trdomain==pixcle.com 
-tip=89.100.100
-tpwd=pass2022
-
 
 BINARYPATH="$INSTALLPREFIX/bin/$NAME"
 CONFIGPATH="$INSTALLPREFIX/etc/$NAME/config.json"
@@ -82,7 +76,6 @@ EOF
     fi
 fi
 
-
 sed -i "8s/password1\",/$tpwd\"/g" /usr/local/etc/trojan/config.json
 sed -i '13s/path\/to/usr\/etc\/acme/g' /usr/local/etc/trojan/config.json
 sed -i '14s/path\/to/usr\/local\/etc\/acme/g' /usr/local/etc/trojan/config.json
@@ -90,9 +83,11 @@ sed -i '9d' /usr/local/etc/trojan/config.json
 
 sudo apt install -y libcap2-bin
 sudo setcap CAP_NET_BIND_SERVICE=+eip /usr/local/bin/trojan
+
 echo trojan Done!
 
-#nginx
+#nginx setting
+
 sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/xlabr/u/sh/nginx-block.sh)"
 
 cat > /etc/nginx/sites-available/default <<-EOF
