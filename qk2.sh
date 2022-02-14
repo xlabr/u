@@ -29,6 +29,11 @@ TMPDIR="$(mktemp -d)"
 INSTALLPREFIX=/usr/local
 SYSTEMDPREFIX=/etc/systemd/system
 
+tdomain=ss
+trdomain==tt 
+tip=ipip
+tpwd=pwdpwd
+
 
 BINARYPATH="$INSTALLPREFIX/bin/$NAME"
 CONFIGPATH="$INSTALLPREFIX/etc/$NAME/config.json"
@@ -78,7 +83,7 @@ EOF
 fi
 
 
-sed -i '8s/pass/k/g' /usr/local/etc/trojan/config.json
+sed -i '8s/password/$tpwd/g' /usr/local/etc/trojan/config.json
 sed -i '9d' /usr/local/etc/trojan/config.json
 sed -i '13s/path/acme/g' /usr/local/etc/trojan/config.json
 #sed -i '14s/p.*to/usr\/local\/etc\/acme/g' /usr/local/etc/trojan/config.json
