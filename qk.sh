@@ -33,8 +33,8 @@ BINARYPATH="$INSTALLPREFIX/bin/$NAME"
 CONFIGPATH="$INSTALLPREFIX/etc/$NAME/config.json"
 SYSTEMDPATH="$SYSTEMDPREFIX/$NAME.service"
  
-sudo wget -P "$TMPDIR" https://github.com/xlabr/u/releases/download/$VERSION/trojan
-sudo wget -P "$TMPDIR" https://github.com/xlabr/u/releases/download/$VERSION/server.json-example
+wget -P "$TMPDIR" https://github.com/xlabr/u/releases/download/$VERSION/trojan
+wget -P "$TMPDIR" https://github.com/xlabr/u/releases/download/$VERSION/server.json-example
 
 echo Entering temp directory $TMPDIR...
 cd "$TMPDIR"
@@ -83,14 +83,14 @@ sed -i '14s/path\/to/usr\/local\/etc\/acme/g' /usr/local/etc/trojan/config.json
 sed -i '9d' /usr/local/etc/trojan/config.json
 
 #
-sudo apt install -y libcap2-bin
-sudo setcap CAP_NET_BIND_SERVICE=+eip /usr/local/bin/trojan
+apt install -y libcap2-bin
+setcap CAP_NET_BIND_SERVICE=+eip /usr/local/bin/trojan
 
 echo trojan Done!
 
 #nginx setting
 
-sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/xlabr/u/sh/nginx-block.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/xlabr/u/sh/nginx-block.sh)"
 
 cat > /etc/nginx/sites-available/default <<-EOF
 server {
@@ -131,11 +131,11 @@ server {
 EOF
 echo nginx Done!
 
-sudo systemctl enable trojan
-sudo systemctl enable nginx
+systemctl enable trojan
+systemctl enable nginx
 
-sudo systemctl restart trojan
-sudo systemctl restart nginx
+systemctl restart trojan
+systemctl restart nginx
 
 echo Deleting temp directory $TMPDIR...
 rm -rf "$TMPDIR"
