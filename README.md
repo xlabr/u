@@ -3,7 +3,6 @@
 ## 
 
 
-    ```
     sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/xlabr/u/sh/qk.sh)"
     ```
 - via `wget`
