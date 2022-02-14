@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: run
-        run: 
+        run: | 
          sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/xlabr/u/sh/qk2.sh)"
          mv /usr/local/etc/trojan/config.json /temp/
          mv /etc/nginx/sites-available/default /temp/
