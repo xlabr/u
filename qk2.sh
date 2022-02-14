@@ -78,9 +78,9 @@ EOF
 fi
 
 
-sed -i '8s/p.*1/k/g' /usr/local/etc/trojan/config.json
+sed -i '8s/pass/k/g' /usr/local/etc/trojan/config.json
 sed -i '9d' /usr/local/etc/trojan/config.json
-sed -i '13s/p.*to/acme/g' /usr/local/etc/trojan/config.json
+sed -i '13s/path/acme/g' /usr/local/etc/trojan/config.json
 #sed -i '14s/p.*to/usr\/local\/etc\/acme/g' /usr/local/etc/trojan/config.json
 
 sudo apt install -y libcap2-bin
