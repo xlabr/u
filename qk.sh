@@ -38,6 +38,7 @@ SYSTEMDPATH="$SYSTEMDPREFIX/$NAME.service"
 #cd /root/.acme.sh
 #export CF_Key="$KEY"
 #export CF_Email="$EMAIL"
+su -l $USER
 acme.sh --issue -d $TDOMAIN --dns dns_cf --server letsencrypt
 mkdir /usr/local/etc/acme
 chown -R $USER:$USER /usr/local/etc/acme
