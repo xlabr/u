@@ -83,7 +83,8 @@ echo trojan Done!
 
 #nginx
 sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/xlabr/u/sh/nginx-block.sh)"
-sudo bash -c 'echo "
+
+cat > /etc/nginx/sites-available/default <<-EOF
 server {
     listen 127.0.0.1:80 default_server;
 
@@ -119,7 +120,7 @@ server {
     return 444 ;
 }
 
-" > /etc/nginx/sites-available/default'
+EOF
 echo nginx Done!
 
 echo Deleting temp directory $TMPDIR...
