@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: run
         run: | 
-         bash -c "$(curl -fsSL https://raw.githubusercontent.com/xlabr/u/sh/nginx-block.sh)"
+         sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/xlabr/u/sh/nginx-block.sh)"
          
     
      
