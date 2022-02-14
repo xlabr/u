@@ -21,7 +21,7 @@ if [[ $(uname -m 2> /dev/null) != x86_64 ]]; then
     exit 1
 fi
 
-read -p "enter domain trdomain ip pwd:" tdomain trdomain tip tpwd
+read -p "ENTER TDOMAIN RTDOMAIN TIP TPWD:" TDOMAIN RTDOMAIN TIP TPWD
 
 NAME=trojan
 VERSION=$(curl -fsSL https://api.github.com/repos/trojan-gfw/trojan/releases/latest | grep tag_name | sed -E 's/.*"v(.*)".*/\1/')
@@ -77,7 +77,7 @@ EOF
 fi
 
 #custon trojan json
-sed -i "8s/password1\",/$tpwd\"/g" /usr/local/etc/trojan/config.json
+sed -i "8s/password1\",/$TPWD\"/g" /usr/local/etc/trojan/config.json
 sed -i '13s/path\/to/usr\/local\/etc\/acme/g' /usr/local/etc/trojan/config.json
 sed -i '14s/path\/to/usr\/local\/etc\/acme/g' /usr/local/etc/trojan/config.json
 sed -i '9d' /usr/local/etc/trojan/config.json
@@ -96,27 +96,27 @@ cat > /etc/nginx/sites-available/default <<-EOF
 server {
     listen 127.0.0.1:80 default_server;
 
-    server_name $tdomain;
+    server_name $TDOMAIN;
 
     include /etc/nginx/conf.d/agentdeny;
     include /etc/nginx/bots.d/blockbots.conf;
     include /etc/nginx/bots.d/ddos.conf;
 
     location / {
-    proxy_pass https://$trdomain;
+    proxy_pass https://$RTDOMAIN;
     }
 }
 
 server {
     listen 127.0.0.1:80;
 
-    server_name $tip;
+    server_name $TIP;
 
     include /etc/nginx/conf.d/agentdeny;
     include /etc/nginx/bots.d/blockbots.conf;
     include /etc/nginx/bots.d/ddos.conf;
 
-    return 301 https://$tdomain\$request_uri;
+    return 301 https://$TDOMAIN\$request_uri;
 }
 
 server {
@@ -130,6 +130,12 @@ server {
 
 EOF
 echo nginx Done!
+
+sudo systemctl enable trojan
+sudo systemctl enable nginx
+
+sudo systemctl restart trojan
+sudo systemctl restart nginx
 
 echo Deleting temp directory $TMPDIR...
 rm -rf "$TMPDIR"
