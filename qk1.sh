@@ -38,7 +38,11 @@ curl  https://get.acme.sh | sh
 export CF_Key="$KEY"
 export CF_Email="$EMAIL"
 /home/ubuntu/.acme.sh/acme.sh --issue -d $TDOMAIN --dns dns_cf --server letsencrypt --force
-mkdir /usr/local/etc/acme
+
+if [ ! -d "/usr/local/etc/acme" ]; then
+  mkdir /usr/local/etc/acme
+fi
+
 chown -R $USER:$USER /usr/local/etc/acme
 /home/ubuntu/.acme.sh/acme.sh --install-cert -d $TDOMAIN --key-file /usr/local/etc/acme/private.key --fullchain-file /usr/local/etc/acme/certificate.crt --force
 /home/ubuntu/.acme.sh/acme.sh  --upgrade  --auto-upgrade
