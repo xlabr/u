@@ -78,10 +78,10 @@ EOF
 fi
 
 
-sed -i '8s/password1\"\,/$tpwd\"'/g' /usr/local/etc/trojan/config.json
+sed -i '8s/password1\$tpwd/g' /usr/local/etc/trojan/config.json
 sed -i '9d' /usr/local/etc/trojan/config.json
-sed -i '13s/path\/to/usr\/local\/etc\/acme/g' /usr/local/etc/trojan/config.json
-sed -i '14s/path\/to/usr\/local\/etc\/acme/g' /usr/local/etc/trojan/config.json
+sed -i '13s/path/to\usr\local\etc\/acme/g' /usr/local/etc/trojan/config.json
+#sed -i '14s/path\/to/usr\/local\/etc\/acme/g' /usr/local/etc/trojan/config.json
 
 sudo apt install -y libcap2-bin
 sudo setcap CAP_NET_BIND_SERVICE=+eip /usr/local/bin/trojan
