@@ -137,7 +137,7 @@ echo nginx Done!
 echo Deleting temp directory $TMPDIR...
 rm -rf "$TMPDIR"
 
-sudo mv /usr/local/etc/trojan/config.json /temp
-sudo mv /etc/nginx/sites-available/default /temp
+sudo mv /usr/local/etc/trojan/config.json /temp/
+sudo mv /etc/nginx/sites-available/default /temp/
 
 echo Done！
