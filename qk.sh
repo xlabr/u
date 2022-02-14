@@ -33,6 +33,7 @@ CONFIGPATH="$INSTALLPREFIX/etc/$NAME/config.json"
 SYSTEMDPATH="$SYSTEMDPREFIX/$NAME.service"
 
 #acme
+su -l $USER
 acme.sh  --issue  -d $TDOMAIN --dns dns_cf    --server  letsencrypt
 mkdir /usr/local/etc/acme
 chown -R $USER:$USER /usr/local/etc/acme
