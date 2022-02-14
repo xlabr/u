@@ -38,10 +38,10 @@ SYSTEMDPATH="$SYSTEMDPREFIX/$NAME.service"
 #cd /root/.acme.sh
 #export CF_Key="$KEY"
 #export CF_Email="$EMAIL"
-acme.sh --issue -d $TDOMAIN --dns dns_cf --server letsencrypt
+/home/$USER/.acme.sh/acme.sh --issue -d $TDOMAIN --dns dns_cf --server letsencrypt
 mkdir /usr/local/etc/acme
 chown -R $USER:$USER /usr/local/etc/acme
-acme.sh --install-cert -d $TDOMAIN --key-file /usr/local/etc/acme/private.key --fullchain-file /usr/local/etc/acme/certificate.crt
+/home/$USER/.acme.sh/acme.sh --install-cert -d $TDOMAIN --key-file /usr/local/etc/acme/private.key --fullchain-file /usr/local/etc/acme/certificate.crt
 acme.sh  --upgrade  --auto-upgrade
 chmod -R 750 /usr/local/etc/acme
 
