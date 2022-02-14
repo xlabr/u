@@ -5,8 +5,7 @@
     "remote_addr": "127.0.0.1",
     "remote_port": 80,
     "password": [
-        "pd1",
-        "pd2"
+        "$tpwd"
     ],
     "log_level": 1,
     "ssl": {
