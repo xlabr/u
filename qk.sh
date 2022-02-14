@@ -41,7 +41,7 @@ export CF_Email="$EMAIL"
 mkdir /usr/local/etc/acme
 chown -R $USER:$USER /usr/local/etc/acme
 /home/ubuntu/.acme.sh/acme.sh --install-cert -d $TDOMAIN --key-file /usr/local/etc/acme/private.key --fullchain-file /usr/local/etc/acme/certificate.crt --force
-acme.sh  --upgrade  --auto-upgrade
+/home/ubuntu/.acme.sh/acme.sh  --upgrade  --auto-upgrade
 chmod -R 750 /usr/local/etc/acme
 
 #trojan 1
