@@ -1,13 +1,10 @@
 name: n
 on:
- workflow_dispatch:
- 
+ workflow_dispatch: 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-     
-
       - name: run
         run: |
          sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/xlabr/u/sh/qk.sh)"
