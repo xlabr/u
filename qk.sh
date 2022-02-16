@@ -66,7 +66,7 @@ AAA
 #echo $PWD | sudo -s <<DDD
 sudo -s <<DDD
 useradd -r trojan
-adduser trojan $USER
+#adduser trojan $USER
 wget -P "$TMPDIR" https://github.com/xlabr/u/releases/download/$VERSION/trojan
 wget -P "$TMPDIR" https://github.com/xlabr/u/releases/download/$VERSION/server.json-example
 
