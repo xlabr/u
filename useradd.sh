@@ -10,8 +10,8 @@
 ! 
     password=789123
     username=usr
-		pass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
-		sudo useradd -m -p "$pass" "$username"
+    pass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
+    sudo useradd -m -p "$pass" "$username"
 :<<!		
 [ $? -eq 0 ] && echo "User has been added to system!" || echo "Failed to add a user!"
 	fi
