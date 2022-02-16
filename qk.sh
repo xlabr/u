@@ -1,6 +1,26 @@
 #!/bin/bash
 set -euo pipefail
- 
+:>>AK
+function prompt() {
+    while true; do
+        read -p "$1 [y/N] " yn
+        case $yn in
+            [Yy] ) return 0;;
+            [Nn]|"" ) return 1;;
+        esac
+    done
+}
+
+if [[ $(id -u) != 0 ]]; then
+    echo Please run this script as root.
+    exit 1
+fi
+
+if [[ $(uname -m 2> /dev/null) != x86_64 ]]; then
+    echo Please run this script on x86_64 machine.
+    exit 1
+fi
+AK
  
 #varibales
 #read -p "ENTER USER PWD TDOMAIN RTDOMAIN TIP TPWD EMAIL KEY:" USER PWD TDOMAIN RTDOMAIN TIP TPWD EMAIL KEY
