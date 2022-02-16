@@ -44,7 +44,6 @@ SYSTEMDPATH="$SYSTEMDPREFIX/$NAME.service"
 
 pass=$(perl -e 'print crypt($ARGV[0], "PWD")' $PWD)
 sudo useradd -m -p "$pass" -g sudo "$USER"
-sudo adduser 
 
 :<<\AAA
 #acme
