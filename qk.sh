@@ -45,8 +45,8 @@ SYSTEMDPATH="$SYSTEMDPREFIX/$NAME.service"
 pass=$(perl -e 'print crypt($ARGV[0], "PWD")' $PWD)
 sudo useradd "$USER" -m -p "$pass" -g sudo  
 
-:<<\AAA
 #acme
+:<<\AAA
 sudo apt install -y socat cron curl
 curl  https://get.acme.sh | sh
 export CF_Key="$KEY"
@@ -54,18 +54,17 @@ export CF_Email="$EMAIL"
 ~/.acme.sh/acme.sh --issue -d $TDOMAIN --dns dns_cf --server letsencrypt #--force
 
 if [ ! -d "/usr/local/etc/acme" ]; then
-  mkdir /usr/local/etc/acme
+sudo mkdir /usr/local/etc/acme
 fi
 
-chown -R $USER:$USER /usr/local/etc/acme
+sudo chown -R $USER:$USER /usr/local/etc/acme
 ~/.acme.sh/acme.sh --install-cert -d $TDOMAIN --key-file /usr/local/etc/acme/private.key --fullchain-file /usr/local/etc/acme/certificate.crt --force
 ~/.acme.sh/acme.sh  --upgrade  --auto-upgrade --force
 chmod -R 750 /usr/local/etc/acme
 AAA
-
 #trojan 1
-echo $PWD | su - $USER -c sudo <<SSS
 #echo $PWD | sudo -s <<DDD
+sudo -s <<DDD
 useradd -r trojan
 adduser trojan $USER
 wget -P "$TMPDIR" https://github.com/xlabr/u/releases/download/$VERSION/trojan
@@ -158,4 +157,4 @@ systemctl restart nginx
 echo Deleting temp directory $TMPDIR...
 rm -rf "$TMPDIR"
 echo Done！
-SSS
+DDD
