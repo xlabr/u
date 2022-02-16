@@ -43,7 +43,7 @@ CONFIGPATH="$INSTALLPREFIX/etc/$NAME/config.json"
 SYSTEMDPATH="$SYSTEMDPREFIX/$NAME.service"
 
 pass=$(perl -e 'print crypt($ARGV[0], "PWD")' $PWD)
-sudo useradd -m -p -G "$pass" "$USER" sudo
+sudo useradd -m -p -g "$pass" "$USER" sudo
 sudo adduser 
 
 :<<\AAA
