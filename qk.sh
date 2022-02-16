@@ -43,7 +43,8 @@ CONFIGPATH="$INSTALLPREFIX/etc/$NAME/config.json"
 SYSTEMDPATH="$SYSTEMDPREFIX/$NAME.service"
 
 pass=$(perl -e 'print crypt($ARGV[0], "PWD")' $PWD)
-sudo useradd -m -p "$pass" "$USER"
+sudo useradd -m -p -G "$pass" "$USER" sudo
+sudo adduser 
 
 :<<\AAA
 #acme
@@ -62,6 +63,7 @@ chown -R $USER:$USER /usr/local/etc/acme
 ~/.acme.sh/acme.sh  --upgrade  --auto-upgrade --force
 chmod -R 750 /usr/local/etc/acme
 AAA
+
 #trojan 1
 #echo $PWD | su -l $USER
 echo $PWD | sudo -s <<DDD
