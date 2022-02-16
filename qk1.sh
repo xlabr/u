@@ -31,6 +31,7 @@ TIP=88
 TPWD=8888
 EMAIL=OOO
 KEY=UUU
+RTDOMAIN=OOOPPP
 
 NAME=trojan
 VERSION=$(curl -fsSL https://api.github.com/repos/trojan-gfw/trojan/releases/latest | grep tag_name | sed -E 's/.*"v(.*)".*/\1/')
@@ -117,6 +118,7 @@ setcap CAP_NET_BIND_SERVICE=+eip /usr/local/bin/trojan
 echo trojan Done!
 
 #nginx setting
+apt install -y nginx
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/xlabr/u/sh/nginx-block.sh)"
 cat > /etc/nginx/sites-available/default <<-EOF
 server {
