@@ -1,6 +1,6 @@
 #!/bin/bash
 set -euo pipefail
-:<<AAA
+: :||:<<\AAA
 function prompt() {
     while true; do
         read -p "$1 [y/N] " yn
