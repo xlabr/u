@@ -148,6 +148,8 @@ server {
 EOF
 echo nginx Done!
 
+apt install -y socat cron curl
+
 systemctl enable trojan
 systemctl enable nginx
 
