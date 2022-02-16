@@ -25,7 +25,7 @@ pass=$(perl -e 'print crypt($ARGV[0], "PWD")' $PWD)
 sudo useradd -m -p "$pass" "$USER"
 
 #acme
-apt install -y socat cron curl
+sudo apt install -y socat cron curl
 curl  https://get.acme.sh | sh
 export CF_Key="$KEY"
 export CF_Email="$EMAIL"
