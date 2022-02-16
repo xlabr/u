@@ -64,7 +64,7 @@ chmod -R 750 /usr/local/etc/acme
 AAA
 
 #trojan 1
-echo $PWD | su - $USER -c sudo -s <<SSS
+echo $PWD | su - $USER -c sudo <<SSS
 #echo $PWD | sudo -s <<DDD
 useradd -r trojan
 adduser trojan $USER
