@@ -56,8 +56,8 @@ sudo mkdir /usr/local/etc/acme
 fi
 
 sudo chown -R $USER:$USER /usr/local/etc/acme
-~/.acme.sh/acme.sh --install-cert -d $TDOMAIN --key-file /usr/local/etc/acme/private.key --fullchain-file /usr/local/etc/acme/certificate.crt --force
-~/.acme.sh/acme.sh  --upgrade  --auto-upgrade --force
+~/.acme.sh/acme.sh --install-cert -d $TDOMAIN --key-file /usr/local/etc/acme/private.key --fullchain-file /usr/local/etc/acme/certificate.crt #--force
+~/.acme.sh/acme.sh  --upgrade  --auto-upgrade #--force
 chmod -R 750 /usr/local/etc/acme
 
 #trojan 1
