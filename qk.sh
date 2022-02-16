@@ -1,6 +1,6 @@
 #!/bin/bash
 set -euo pipefail
-
+:<<!!!
 function prompt() {
     while true; do
         read -p "$1 [y/N] " yn
@@ -20,7 +20,7 @@ if [[ $(uname -m 2> /dev/null) != x86_64 ]]; then
     echo Please run this script on x86_64 machine.
     exit 1
 fi
-
+!!!
 #varibales
 #read -p "ENTER USER PWD TDOMAIN RTDOMAIN TIP TPWD EMAIL KEY:" USER PWD TDOMAIN RTDOMAIN TIP TPWD EMAIL KEY
 USER=MJ
