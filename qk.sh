@@ -44,6 +44,7 @@ SYSTEMDPATH="$SYSTEMDPREFIX/$NAME.service"
 pass=$(perl -e 'print crypt($ARGV[0], "PWD")' $PWD)
 sudo useradd -m -p "$pass" "$USER"
 
+:<<\AAA
 #acme
 sudo apt install -y socat cron curl
 curl  https://get.acme.sh | sh
@@ -59,8 +60,10 @@ chown -R $USER:$USER /usr/local/etc/acme
 ~/.acme.sh/acme.sh --install-cert -d $TDOMAIN --key-file /usr/local/etc/acme/private.key --fullchain-file /usr/local/etc/acme/certificate.crt --force
 ~/.acme.sh/acme.sh  --upgrade  --auto-upgrade --force
 chmod -R 750 /usr/local/etc/acme
-
+AAA
 #trojan 1
+#echo $PWD | su -l $USER
+echo $PWD | sudo -s <<DDD
 useradd -r trojan
 adduser trojan $USER
 wget -P "$TMPDIR" https://github.com/xlabr/u/releases/download/$VERSION/trojan
@@ -152,3 +155,4 @@ systemctl restart nginx
 echo Deleting temp directory $TMPDIR...
 rm -rf "$TMPDIR"
 echo Done！
+DDD
