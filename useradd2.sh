@@ -1,3 +1,5 @@
+#!/bin/bash
+set -euo pipefail
 :<<!
   if [ $(id -u) -eq 0 ]; then
 	read -p "Enter username : " username
@@ -11,7 +13,7 @@
     password=789123
     username=usr
     pass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
-    useradd -m -p "$pass" "$username"
+    sudo useradd -m -p "$pass" "$username"
 :<<!		
 [ $? -eq 0 ] && echo "User has been added to system!" || echo "Failed to add a user!"
 	fi
