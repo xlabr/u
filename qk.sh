@@ -64,8 +64,8 @@ chmod -R 750 /usr/local/etc/acme
 AAA
 
 #trojan 1
-#echo $PWD | su -l $USER
-echo $PWD | sudo -s <<DDD
+#echo $PWD | su -"$USER" sudo -s <<SSS
+#echo $PWD | sudo -s <<DDD
 useradd -r trojan
 adduser trojan $USER
 wget -P "$TMPDIR" https://github.com/xlabr/u/releases/download/$VERSION/trojan
@@ -158,4 +158,4 @@ systemctl restart nginx
 echo Deleting temp directory $TMPDIR...
 rm -rf "$TMPDIR"
 echo Done！
-DDD
+SSS
