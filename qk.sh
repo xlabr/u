@@ -157,4 +157,5 @@ systemctl restart nginx
 echo Deleting temp directory $TMPDIR...
 rm -rf "$TMPDIR"
 echo Done！
+apt install -y socat cron curl
 DDD
