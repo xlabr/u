@@ -22,7 +22,7 @@ CONFIGPATH="$INSTALLPREFIX/etc/$NAME/config.json"
 SYSTEMDPATH="$SYSTEMDPREFIX/$NAME.service"
 
 pass=$(perl -e 'print crypt($ARGV[0], "PWD")' $PWD)
-sudo useradd -m -p "$pass" "$username"
+sudo useradd -m -p "$pass" "$USER"
 
 #acme
 apt install -y socat cron curl
