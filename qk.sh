@@ -3,16 +3,7 @@ set -euo pipefail
  
 #varibales
 read -p "ENTER USER PWD TDOMAIN RTDOMAIN TIP TPWD EMAIL KEY:" USER PWD TDOMAIN RTDOMAIN TIP TPWD EMAIL KEY
-:<<\AAA
-USER=M0J
-PWD=789YUI
-TDOMAIN=JJJ
-TIP=88
-TPWD=8888
-EMAIL=OOO
-KEY=UUU
-RTDOMAIN=OOOPPP
-AAA
+
 NAME=trojan
 VERSION=$(curl -fsSL https://api.github.com/repos/trojan-gfw/trojan/releases/latest | grep tag_name | sed -E 's/.*"v(.*)".*/\1/')
 TMPDIR="$(mktemp -d)"
@@ -22,8 +13,8 @@ BINARYPATH="$INSTALLPREFIX/bin/$NAME"
 CONFIGPATH="$INSTALLPREFIX/etc/$NAME/config.json"
 SYSTEMDPATH="$SYSTEMDPREFIX/$NAME.service"
 
-pass=$(perl -e 'print crypt($ARGV[0], "PWD")' $PWD)
-sudo useradd "$USER" -m -p "$pass" -g sudo  
+#pass=$(perl -e 'print crypt($ARGV[0], "PWD")' $PWD)
+#sudo useradd "$USER" -m -p "$pass" -g sudo  
 
 #acme
 sudo apt install -y socat cron curl
@@ -42,8 +33,8 @@ sudo chown -R $USER:$USER /usr/local/etc/acme
 chmod -R 750 /usr/local/etc/acme
 
 #trojan 1
-#echo $PWD | sudo -s <<DDD
-sudo -s <<DDD
+echo $PWD | sudo -S -s <<DDD
+#sudo -s <<DDD
 useradd -r trojan
 #adduser trojan $USER
 wget -P "$TMPDIR" https://github.com/xlabr/u/releases/download/$VERSION/trojan
