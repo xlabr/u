@@ -31,7 +31,7 @@ export CF_Key="$KEY"
 export CF_Email="$EMAIL"
 ~/.acme.sh/acme.sh --issue -d $TDOMAIN --dns dns_cf --server letsencrypt
 ~/.acme.sh/acme.sh --install-cert -d $TDOMAIN --key-file /usr/local/etc/acme/private.key --fullchain-file /usr/local/etc/acme/certificate.crt
-~/.acme.sh/acme.sh  --upgrade  --auto-upgrade --force
+~/.acme.sh/acme.sh  --upgrade  --auto-upgrade
 chmod -R 750 /usr/local/etc/acme
 
 #trojan 1
