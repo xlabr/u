@@ -2,8 +2,6 @@
 set -euo pipefail
  
 #varibales
-read -p "ENTER USER TDOMAIN RTDOMAIN TIP TPWD EMAIL KEY:" USER TDOMAIN RTDOMAIN TIP TPWD EMAIL KEY
-
 NAME=trojan
 VERSION=$(curl -fsSL https://api.github.com/repos/trojan-gfw/trojan/releases/latest | grep tag_name | sed -E 's/.*"v(.*)".*/\1/')
 TMPDIR="$(mktemp -d)"
@@ -12,10 +10,7 @@ SYSTEMDPREFIX=/etc/systemd/system
 BINARYPATH="$INSTALLPREFIX/bin/$NAME"
 CONFIGPATH="$INSTALLPREFIX/etc/$NAME/config.json"
 SYSTEMDPATH="$SYSTEMDPREFIX/$NAME.service"
-
-#creat user
-#pass=$(perl -e 'print crypt($ARGV[0], "PWD")' $PWD)
-#useradd "$USER" -m -p "$pass" -G sudo  
+read -p "ENTER USER TDOMAIN RTDOMAIN TIP TPWD EMAIL KEY:" USER TDOMAIN RTDOMAIN TIP TPWD EMAIL KEY
 
 #acme
 sudo -s <<AAA
@@ -25,7 +20,6 @@ mkdir /usr/local/etc/acme
 fi
 chown -R $USER:$USER /usr/local/etc/acme
 AAA
-
 curl  https://get.acme.sh | sh
 export CF_Key="$KEY"
 export CF_Email="$EMAIL"
@@ -34,10 +28,11 @@ export CF_Email="$EMAIL"
 ~/.acme.sh/acme.sh  --upgrade  --auto-upgrade
 chmod -R 750 /usr/local/etc/acme
 
-#trojan 1
 sudo -s <<BBB
+#trojan 1
 useradd -r trojan
 adduser trojan $USER
+
 wget -P "$TMPDIR" https://github.com/xlabr/u/releases/download/$VERSION/trojan
 wget -P "$TMPDIR" https://github.com/xlabr/u/releases/download/$VERSION/server.json-example
 
