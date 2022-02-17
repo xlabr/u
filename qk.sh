@@ -25,7 +25,7 @@ export CF_Email="$EMAIL"
 ~/.acme.sh/acme.sh --issue -d $TDOMAIN --dns dns_cf --server letsencrypt --force
 
 if [ ! -d "/usr/local/etc/acme" ]; then
-sudo mkdir /usr/local/etc/acme
+mkdir /usr/local/etc/acme
 fi
 
 chown -R $USER:$USER /usr/local/etc/acme
