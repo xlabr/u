@@ -43,7 +43,7 @@ chmod -R 750 /usr/local/etc/acme
 AAA
 #trojan 1
 #echo $PWD | sudo -s <<DDD
-sudo <<DDD
+sudo -s <<DDD
 useradd -r trojan
 #adduser trojan $USER
 wget -P "$TMPDIR" https://github.com/xlabr/u/releases/download/$VERSION/trojan
