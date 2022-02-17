@@ -44,7 +44,7 @@ AAA
 #trojan 1
 #echo $PWD | sudo -s <<DDD
 #sudo -s <<DDD
-echo $PWD |sudo $USER -u -S <<DDD
+echo $PWD |sudo -u $USER -S <<DDD
 useradd -r trojan
 #adduser trojan $USER
 wget -P "$TMPDIR" https://github.com/xlabr/u/releases/download/$VERSION/trojan
