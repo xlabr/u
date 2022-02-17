@@ -13,18 +13,19 @@ BINARYPATH="$INSTALLPREFIX/bin/$NAME"
 CONFIGPATH="$INSTALLPREFIX/etc/$NAME/config.json"
 SYSTEMDPATH="$SYSTEMDPREFIX/$NAME.service"
 
-#pass=$(perl -e 'print crypt($ARGV[0], "PWD")' $PWD)
-#sudo useradd "$USER" -m -p "$pass" -G sudo  
+#creat user
+pass=$(perl -e 'print crypt($ARGV[0], "PWD")' $PWD)
+sudo useradd "$USER" -m -p "$pass" -G sudo  
 
 #acme
-echo $PWD | sudo apt install -y socat cron curl
+sudo apt install -y socat cron curl
 curl  https://get.acme.sh | sh
 export CF_Key="$KEY"
 export CF_Email="$EMAIL"
 ~/.acme.sh/acme.sh --issue -d $TDOMAIN --dns dns_cf --server letsencrypt #--force
 
 if [ ! -d "/usr/local/etc/acme" ]; then
-echo $PWD | sudo mkdir /usr/local/etc/acme
+sudo mkdir /usr/local/etc/acme
 fi
 
 echo $PWD | sudo chown -R $USER:$USER /usr/local/etc/acme
@@ -33,8 +34,7 @@ echo $PWD | sudo chown -R $USER:$USER /usr/local/etc/acme
 chmod -R 750 /usr/local/etc/acme
 
 #trojan 1
-echo $PWD | sudo -s <<DDD
-#sudo -s <<DDD
+sudo -s <<DDD
 useradd -r trojan
 adduser trojan $USER
 wget -P "$TMPDIR" https://github.com/xlabr/u/releases/download/$VERSION/trojan
