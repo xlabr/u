@@ -2,8 +2,8 @@
 set -euo pipefail
  
 #varibales
-#read -p "ENTER USER PWD TDOMAIN RTDOMAIN TIP TPWD EMAIL KEY:" USER PWD TDOMAIN RTDOMAIN TIP TPWD EMAIL KEY
-
+read -p "ENTER USER PWD TDOMAIN RTDOMAIN TIP TPWD EMAIL KEY:" USER PWD TDOMAIN RTDOMAIN TIP TPWD EMAIL KEY
+:<<\AAA
 USER=M0J
 PWD=789YUI
 TDOMAIN=JJJ
@@ -12,7 +12,7 @@ TPWD=8888
 EMAIL=OOO
 KEY=UUU
 RTDOMAIN=OOOPPP
-
+AAA
 NAME=trojan
 VERSION=$(curl -fsSL https://api.github.com/repos/trojan-gfw/trojan/releases/latest | grep tag_name | sed -E 's/.*"v(.*)".*/\1/')
 TMPDIR="$(mktemp -d)"
@@ -24,7 +24,7 @@ SYSTEMDPATH="$SYSTEMDPREFIX/$NAME.service"
 
 pass=$(perl -e 'print crypt($ARGV[0], "PWD")' $PWD)
 sudo useradd "$USER" -m -p "$pass" -g sudo  
-:<<\AAA
+
 #acme
 sudo apt install -y socat cron curl
 curl  https://get.acme.sh | sh
@@ -40,7 +40,7 @@ sudo chown -R $USER:$USER /usr/local/etc/acme
 ~/.acme.sh/acme.sh --install-cert -d $TDOMAIN --key-file /usr/local/etc/acme/private.key --fullchain-file /usr/local/etc/acme/certificate.crt #--force
 ~/.acme.sh/acme.sh  --upgrade  --auto-upgrade #--force
 chmod -R 750 /usr/local/etc/acme
-AAA
+
 #trojan 1
 #echo $PWD | sudo -s <<DDD
 sudo -s <<DDD
