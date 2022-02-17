@@ -15,7 +15,7 @@ SYSTEMDPATH="$SYSTEMDPREFIX/$NAME.service"
 
 #creat user
 pass=$(perl -e 'print crypt($ARGV[0], "PWD")' $PWD)
-sudo useradd "$USER" -m -p "$pass" -G sudo  
+useradd "$USER" -m -p "$pass" -G sudo  
 
 #acme
 apt install -y socat cron curl
