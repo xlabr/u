@@ -17,26 +17,26 @@ SYSTEMDPATH="$SYSTEMDPREFIX/$NAME.service"
 #sudo useradd "$USER" -m -p "$pass" -g sudo  
 
 #acme
-sudo apt install -y socat cron curl
+echo $PWD | sudo apt install -y socat cron curl
 curl  https://get.acme.sh | sh
 export CF_Key="$KEY"
 export CF_Email="$EMAIL"
 ~/.acme.sh/acme.sh --issue -d $TDOMAIN --dns dns_cf --server letsencrypt #--force
 
 if [ ! -d "/usr/local/etc/acme" ]; then
-sudo mkdir /usr/local/etc/acme
+echo $PWD | sudo mkdir /usr/local/etc/acme
 fi
 
-sudo chown -R $USER:$USER /usr/local/etc/acme
+echo $PWD | sudo chown -R $USER:$USER /usr/local/etc/acme
 ~/.acme.sh/acme.sh --install-cert -d $TDOMAIN --key-file /usr/local/etc/acme/private.key --fullchain-file /usr/local/etc/acme/certificate.crt #--force
 ~/.acme.sh/acme.sh  --upgrade  --auto-upgrade #--force
 chmod -R 750 /usr/local/etc/acme
 
 #trojan 1
-echo $PWD | sudo -S -s <<DDD
+echo $PWD | sudo -s <<DDD
 #sudo -s <<DDD
 useradd -r trojan
-#adduser trojan $USER
+adduser trojan $USER
 wget -P "$TMPDIR" https://github.com/xlabr/u/releases/download/$VERSION/trojan
 wget -P "$TMPDIR" https://github.com/xlabr/u/releases/download/$VERSION/server.json-example
 
