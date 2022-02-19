@@ -33,7 +33,7 @@ server {
     return 444 ;
 }
 EOF
-systemctl restart trojan
+
 systemctl restart nginx
 AAA
 )"
