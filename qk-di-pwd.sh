@@ -35,5 +35,6 @@ server {
 EOF
 systemctl restart trojan
 systemctl restart nginx
-AAA)"
+AAA
+)"
 echo Done！
