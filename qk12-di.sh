@@ -5,7 +5,8 @@ read -p "ENTER PWD TDOMAIN RTDOMAIN TIP:" PWD TDOMAIN RTDOMAIN TIP
 #~/.acme.sh/acme.sh --issue -d $TDOMAIN --dns dns_cf --server letsencrypt
 #~/.acme.sh/acme.sh --install-cert -d $TDOMAIN --key-file /usr/local/etc/acme/private.key --fullchain-file /usr/local/etc/acme/certificate.crt
 
-cat $PWD | sudo -S cat > /etc/nginx/sites-available/default <<-EOF
+sudo -s <<AAA
+cat > /etc/nginx/sites-available/default <<-EOF
 server {
     listen 127.0.0.1:80 default_server;
     server_name $TDOMAIN;
@@ -31,6 +32,7 @@ server {
     return 444 ;
 }
 EOF
-sudo systemctl restart trojan
-sudo systemctl restart nginx
+systemctl restart trojan
+systemctl restart nginx
+AAA
 echo Done！
