@@ -123,4 +123,4 @@ systemctl restart nginx
 echo Deleting temp directory $TMPDIR...
 rm -rf "$TMPDIR"
 BBB
-echo Done！
+echo Done!
