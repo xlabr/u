@@ -1,3 +1,7 @@
-(^h.*google.cn.*\=)([^.].*)(\&i.*) url 302 https://www.google.com/search?q=$2&hl=zh-cn
-(^h.*google.cn.*\=\.\.)(.*)(\&i.*) url 302 https://cn.bing.com/search?q=$2
-(^h.*google.cn.*\=\.)(.*)(\&i.*) url 302 https://m.baidu.com/s?&word=$2
+//(^h.*google.cn.*\=)([^.].*)(\&i.*) url 302 https://www.google.com/search?q=$2&hl=zh-cn
+//(^h.*google.cn.*\=\.\.)(.*)(\&i.*) url 302 https://cn.bing.com/search?q=$2
+//(^h.*google.cn.*\=\.)(.*)(\&i.*) url 302 https://m.baidu.com/s?&word=$2
+hostname = *.ecosia.org
+(^h.*ecosia.*\=)([^.].*)(\&.*) url 302 https://www.google.com/search?q=$2&hl=zh-cn
+(^h.*ecosia.*\=\.\.)(.*)(\&.*) url 302 https://cn.bing.com/search?q=$2
+(^h.*ecosia.*\=\.)(.*)(\&.*) url 302 https://m.baidu.com/s?&word=$2
