@@ -1,9 +1,10 @@
+#VERSION=$(curl -fsSL https://api.github.com/repos/trojan-gfw/trojan/releases/latest | grep tag_name | sed -E 's/.*"v(.*)".*/\1/')
 #!/bin/bash
 set -euo pipefail
  
 #varibales
 NAME=trojan
-VERSION=$(curl -fsSL https://api.github.com/repos/trojan-gfw/trojan/releases/latest | grep tag_name | sed -E 's/.*"v(.*)".*/\1/')
+VERSION=1.16.0
 TMPDIR="$(mktemp -d)"
 INSTALLPREFIX=/usr/local
 SYSTEMDPREFIX=/etc/systemd/system
