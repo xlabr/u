@@ -18,26 +18,7 @@ TIP=sjkfjjs
 TPWD=kjkjfksk
 EMAIL=fss@11.com
 KEY=hshfj
-#acme
-sudo -s <<AAA
-apt install -y socat cron curl
-if [ ! -d "/usr/local/etc/acme" ]; then
-mkdir /usr/local/etc/acme
-fi
-chown -R $USER:$USER /usr/local/etc/acme
-AAA
-curl  https://get.acme.sh | sh
-export CF_Key="$KEY"
-export CF_Email="$EMAIL"
-~/.acme.sh/acme.sh --issue -d $TDOMAIN --dns dns_cf --server letsencrypt
-~/.acme.sh/acme.sh --install-cert -d $TDOMAIN --key-file /usr/local/etc/acme/private.key --fullchain-file /usr/local/etc/acme/certificate.crt
-~/.acme.sh/acme.sh  --upgrade  --auto-upgrade
-chmod -R 750 /usr/local/etc/acme
 
-sudo -s <<BBB
-#trojan 1
-useradd -r trojan
-adduser trojan $USER
 wget -P "$TMPDIR" https://github.com/xlabr/u/releases/download/$VERSION/trojan
 wget -P "$TMPDIR" https://github.com/xlabr/u/releases/download/$VERSION/server.json-example
 cd "$TMPDIR"
