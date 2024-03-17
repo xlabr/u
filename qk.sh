@@ -73,6 +73,7 @@ EOF
 fi
 
 #trojan 2
+sed -i '3s/0.0.0.0/::/g' /usr/local/etc/trojan/config.json
 sed -i "8s/password1\",/$TPWD\"/g" /usr/local/etc/trojan/config.json
 sed -i '13s/path\/to/usr\/local\/etc\/acme/g' /usr/local/etc/trojan/config.json
 sed -i '14s/path\/to/usr\/local\/etc\/acme/g' /usr/local/etc/trojan/config.json
